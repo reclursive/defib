@@ -8,5 +8,5 @@ const router = Router()
 router.get('/get-users', getUsers)
 router.post('/signup', signupValidation, validationMW, signup)
 router.post('/login', loginValidation, validationMW, login)
-router.get('/logout', userAuth, logout)
+router.get('/logout', logout)
 module.exports = router
