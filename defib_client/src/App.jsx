@@ -7,6 +7,15 @@ import {
   Link,
 } from "react-router-dom"
 
+import Dashboard from './pages/user/dashboard'
+import Login from './pages/user/login'
+import Signup from './pages/user/signup'
+import Saved from './pages/user/saved'
+import Publications from './pages/user/publications'
+import Home from './pages/global/home'
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
