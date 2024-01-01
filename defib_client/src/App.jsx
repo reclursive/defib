@@ -28,19 +28,27 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
-  },
+  }
+])
+
+
+
+const private_router = createBrowserRouter([
   {
+    isAuth: false,
     //protected
     path: "/dashboard",
     element: <Dashboard />,
   },
   {
     //protected
+    isAuth: false,
     path: "/publications",
     element: <Publications />,
   },
   {
     //protected, CRUD...
+    isAuth: false,
     path: "/saved",
     element: <Saved />,
   }
@@ -48,10 +56,12 @@ const router = createBrowserRouter([
 
 ])
 
+
 const App = () =>{
   return ( 
    <div className= "App">
     <RouterProvider router={router}/>
+    <RouterProvider router={private_router}/>
    </div>
 
   )
