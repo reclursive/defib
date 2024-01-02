@@ -1,11 +1,11 @@
-const Login = () => {
+const SignUp = () => {
     return (
         <div>
             <h1>
-                Login
+                sign up
             </h1>
         </div>
     )
 }
 
-export default Login
+export default SignUp

@@ -8,15 +8,29 @@ import {
 } from "react-router-dom"
 
 import Dashboard from './pages/user/dashboard'
-import Login from './pages/user/login'
-import Signup from './pages/user/signup'
+import Login from './pages/global/login'
+import Signup from './pages/global/signup'
 import Saved from './pages/user/saved'
 import Publications from './pages/user/publications'
 import Home from './pages/global/home'
+import About from './pages/global/about'
 
 
+//going to change to create routes from elements non protected
+const Protected = () => {
+  // const location = useLocation();
+  const { isAuth } = false;
 
-const router = createBrowserRouter([
+  if (isAuth === undefined) {
+    return null; 
+  }
+//including a replace state later
+  return isAuth
+    ? <Outlet />
+    : <Navigate to="/login"/>;
+}
+
+const routes = [
   {
     path: "/",
     element: <Home />,
@@ -24,47 +38,46 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-  },
+   },
   {
     path: "/signup",
     element: <Signup />,
-  }
-])
-
-
-
-const private_router = createBrowserRouter([
-  {
-    isAuth: false,
-    //protected
-    path: "/dashboard",
-    element: <Dashboard />,
   },
   {
-    //protected
-    isAuth: false,
-    path: "/publications",
-    element: <Publications />,
+    path: "/about",
+    element: <About />,
   },
+
   {
-    //protected, CRUD...
-    isAuth: false,
-    path: "/saved",
-    element: <Saved />,
+    element: <Protected />,
+    children: [
+      {
+        //protected
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        //protected
+        path: "/publications",
+        element: <Publications />,
+      },
+      {
+        //protected, CRUD...
+        path: "/saved",
+        element: <Saved />,
+      }
+
+
+    ]
   }
 
+]
 
-])
+const router = createBrowserRouter(routes);
 
 
 const App = () =>{
-  return ( 
-   <div className= "App">
-    <RouterProvider router={router}/>
-    <RouterProvider router={private_router}/>
-   </div>
-
-  )
+  return <RouterProvider router={router} />;
 }
 
 export default App
