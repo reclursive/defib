@@ -18,6 +18,9 @@ const Home = () => {
             <li>
             <NavLink to="/about">About Defib</NavLink> 
             </li>
+            <li>
+            <NavLink to="/search">Search</NavLink> 
+            </li>
         </ul>
         </div>
     )

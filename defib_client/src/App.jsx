@@ -14,6 +14,8 @@ import Saved from './pages/user/saved'
 import Publications from './pages/user/publications'
 import Home from './pages/global/home'
 import About from './pages/global/about'
+import Search from './pages/global/search'
+
 
 
 //going to change to create routes from elements non protected
@@ -47,7 +49,10 @@ const routes = [
     path: "/about",
     element: <About />,
   },
-
+  {
+  path: "/search",
+  element: <Search />,
+    },
   {
     element: <Protected />,
     children: [
