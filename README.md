@@ -6,5 +6,6 @@
 ### top publications are hyper linked with word or headline
 ### ________Ice Box
 ### sort options for infinite scroll 
-### current news and simultaneous news segments below article/headline for distraction check
+### current/simultaneous news segments below article/headline for distraction check
+### possible distraction meter
 ### friends - vanishing user web socket messenger
