@@ -2,8 +2,8 @@
 const Articles= (props) => {
   return (
     <div>
-      {props.articles.map((article, index) => (
-        <li>{article.description}</li>
+      {props.articles?.map((article) => (
+        <li>{article.title}</li>
 
       ))}
     </div>
