@@ -1,8 +1,14 @@
 const SignUp = () => {
+    const submit = async (event) =>{
+        const value = event.target.value
+        setNewUser(value)
+        console.log(user)
+        const res = await req()
+    }   
     return (
         <div>
             <h1>SIGN UP to DeFib</h1>
-            <form action="submit">
+            <form>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
