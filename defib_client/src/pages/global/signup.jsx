@@ -1,14 +1,31 @@
 const SignUp = () => {
+    const [values, setValues] = useState({
+        email: '',
+        username: '',
+        password: ''
+    })
+    const [error, setError] = useState(false)
+    const [success, setSuccess] = useState(false)
+    const onChange = (event) =>{
+        setValues({...values, [event.target.name]: event.target.value})
+    }   
     const submit = async (event) =>{
-        const value = event.target.value
-        setNewUser(value)
-        console.log(user)
-        const res = await req()
+        event.preventDefault()
+        try{
+            const {data} = await onsubmit(values)
+            setError('')
+            setSuccess(data.message)
+            setValues({email: '', username: '', password:''})
+        }
+        catch (error){
+            console.log(error.response)
+            setError(error.response.data.errors[0].msg)
+        }
     }   
     return (
         <div>
             <h1>SIGN UP to DeFib</h1>
-            <form>
+            <form onSubmit={(event) => onSubmit(event)}>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
