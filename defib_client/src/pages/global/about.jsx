@@ -2,7 +2,8 @@ const About = () => {
     return (
         <div>
             <h1>
-               About 
+             De-fib:
+             a place to see and correct recent headlines,
             </h1>
         </div>
     )
