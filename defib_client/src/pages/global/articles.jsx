@@ -1,3 +1,4 @@
+import Meter from "../../../components/meters/distraction"
 
 const Articles= (props) => {
   return (
